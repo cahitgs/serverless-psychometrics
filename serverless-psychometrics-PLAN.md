@@ -17,7 +17,17 @@
 - [x] **Headless Chrome uçtan uca test:** yükleme→CSV→analiz→sonuç; hazır olma 7.2 s (yerel), analiz 1.5 s (N=500×8, 2×200 bootstrap); **sonuçlar native R ile eşleşti, bootstrap GA'lar dahil (aynı RNG!)**; upload→analiz arasında **0 ağ isteği, 0 harici host** → §7.4 gizlilik kanıt yöntemi doğrulandı. Görsel: `figures/omegalite-e2e-test.png`
 - [x] `paper/versions.txt` (TOP Level 2 sürüm kaydı)
 
-**Bugünkü kararlar:** audit yıl aralığı **2015–2025**; makale **Quarto → Word (docx)**; OmegaLite çekirdeği bilinçli olarak **psych'siz** (webR garantisi + minimal pedagojik örnek + psych yereldeki doğrulama kıyası olarak kullanılıyor).
+**Bugünkü kararlar:** audit yıl aralığı **2015–2025**; makale **Quarto → Word (docx)**; OmegaLite çekirdeği bilinçli olarak **psych'siz** (webR garantisi + minimal pedagojik örnek + psych yereldeki doğrulama kıyası olarak kullanılıyor); **Aşama C = C1** (ölü uygulama diriltme + sunucusuz-doğuşlu BiasDetectR).
+
+### Gün 2 eki (deploy + audit başlangıcı, aynı gün)
+- [x] **GitHub repo canlı:** https://github.com/cahitgs/serverless-psychometrics (public, MIT)
+- [x] **OmegaLite CANLI:** https://cahitgs.github.io/serverless-psychometrics/omegalite/ — canlı URL'de e2e test geçti: soğuk yükleme **16.4 s** (internetten; yerel 7.2 s idi), analiz 1.6 s, analiz sırasında 0 ağ isteği, üçüncü taraf host YOK. İlk gerçek benchmark noktası.
+- [x] Pages notu (makaleye girecek): workflow token'ı Pages'i ilk kez etkinleştiremiyor → bir kerelik `gh api -X POST repos/<owner>/<repo>/pages -f build_type=workflow`
+- [x] `audit/protocol.md` (İng., OSF'ye hazır) + `check_links.R` (3 URL ile testli) + `harvest_epmc.R`
+- [x] **Keşif:** shinyapps.io uyuyan uygulama uyanırken **HTTP 202** veriyor → probe'da ayrı sınıf (`waking_202`), protokole işlendi
+- [x] **EPMC hasadı:** 40 OA makale ("Shiny" tam metin), 19 URL → `results.csv` (42 satır; 24 makale URL'siz, elle taranacak). EPMC tuhaflığı belgelendi: `BODY:"shinyapps.io"` tokenizasyon yüzünden çalışmıyor, doğru huni `BODY:"Shiny"` + yerel regex
+- [x] **İlk probe günü (2026-07-28):** 16 URL → 4 doğrudan açık, **10 uykuda (202)**, **1 kesin ölü (404: losener.shinyapps.io/MLM_input)**, **1 kurum sunucusu DNS'ten silinmiş (shiny.molekulare-psychologie.de/ChatDashboard)**. Küçük OA örnekleminde bile ölüm başladı; iki C1 diriltme adayı şimdiden elde
+- [x] Günlük probe GitHub Actions'ta kurulu (03:17 UTC, `audit/probes/`e commit'ler)
 
 ---
 
@@ -92,10 +102,11 @@ BRM-SHİNY/
 8. `check_links.R`: httr2; timeout/redirect politikası dokümante (Kern: 30 s, ≤50 redirect); redirect'ler ayrı kategori; ikinci kodlayıcı varsa uyum katsayısı.
 
 ### Görevler
-- [ ] protocol.md yaz → OSF ön-kayıt
-- [ ] Springer araması + URL çıkarımı → results.csv iskeleti
-- [ ] check_links.R + GitHub Actions günlük probe → **hemen başlat**
-- [ ] 200'leri elle sınıfla (dereceli ölçek)
+- [x] protocol.md yazıldı → **[ ] OSF'ye yükle (kullanıcıyla; hesap gerekiyor)**
+- [x] EPMC hasadı + results.csv iskeleti (OA alt küme, 40 makale)
+- [ ] **Springer Link tam metin araması (elle)** — EPMC yalnız OA'yı görüyor; tam kohort (~100–150) için şart. Arama: `"shinyapps.io"` site içi, dergi=BRM, 2015–2025; sonuçlar results.csv'ye eklenecek
+- [x] check_links.R + GitHub Actions günlük probe **başladı (gün 1: 2026-07-28)**
+- [ ] 2XX'leri elle sınıfla (dereceli ölçek; probe penceresi kapanırken)
 - [ ] Sağkalım figürü + vurucu yüzde
 - [ ] Ham veri OSF'ye
 
@@ -104,7 +115,8 @@ BRM-SHİNY/
 ## 6. Aşama B — OmegaLite — büyük ölçüde ✅
 
 Kalanlar:
-- [ ] GitHub Pages'e deploy (repo + Actions); telefonda aç
+- [x] GitHub Pages'e deploy → https://cahitgs.github.io/serverless-psychometrics/omegalite/
+- [ ] **Telefonda aç (kullanıcı):** canlı linki telefonda test et
 - [ ] İndirmeyi gerçek Chrome + Firefox'ta elle doğrula (workaround kondu, headless test indirmeyi test etmedi)
 - [ ] Makale ekran görüntüleri (yükleme → seçim → sonuç)
 - Not: makalede `app.R` tam listing olarak basılacak (BRM aims & scope bunu açıkça teşvik ediyor; ~140 satır uygun boy)
