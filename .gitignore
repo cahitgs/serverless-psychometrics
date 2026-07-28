@@ -1,0 +1,7 @@
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+node_modules/
+paper/_output/
+temporary screenshots/
