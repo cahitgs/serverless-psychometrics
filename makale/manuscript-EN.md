@@ -128,7 +128,7 @@ Anyone, at any future time, can then download the zip, unzip it, and run `httpuv
 
 OmegaLite (Figure 2) is deliberately minimal — a complete, useful psychometric tool in roughly 140 lines of exclusively base-R-plus-shiny code, designed to be read as a template. The user uploads a CSV, selects item columns, and receives McDonald's omega-total with a bootstrap confidence interval as the headline metric — following the recommendation to prefer omega over alpha (McNeish, 2018) — alongside Cronbach's alpha for comparison, corrected item-total correlations, and alpha/omega-if-item-deleted tables, all downloadable as CSV.
 
-**[Figure 2 about here — OmegaLite screenshot: figures/omegalite-e2e-test.png]**
+![**Figure 2.** OmegaLite running in the browser: uploaded data, item selection, omega/alpha with bootstrap CIs, and item statistics.](../figures/omegalite-e2e-test.png)
 
 The statistical core fits one paragraph. Omega-total is computed from a single-factor maximum-likelihood solution obtained with `stats::factanal()`: with standardized loadings λ, ω_t = (Σλ)² / [(Σλ)² + Σ(1 − λ²)] (McDonald, 1999). Alpha is computed from the covariance matrix. Confidence intervals use a nonparametric bootstrap (percentile method, fixed seed). No contributed package is involved, which is precisely why the app is guaranteed to behave identically in webR.
 
@@ -145,7 +145,7 @@ BiasDetectR Live (Figure 3) demonstrates that a research-grade analysis pipeline
 
 The user selects the group column, the focal group, and the item columns; output comprises both statistical tables, a Δ_MH plot with ETS thresholds drawn as reference lines, and a merged downloadable results table. IRT-based DIF methods (e.g., Lord's test, IRT-LR) are deliberately out of scope: their estimation burden and package dependencies make them better suited to server-based deployment, an explicit example of the decision guide in Section 7.
 
-**[Figure 3 about here — BiasDetectR Live screenshot: figures/biasdetectr-e2e-test.png]**
+![**Figure 3.** BiasDetectR Live: the ETS delta plot with classification thresholds and the Mantel–Haenszel results table; the three planted DIF items are flagged.](../figures/biasdetectr-e2e-test.png)
 
 **Validation against difR.** We simulated a 20-item, two-group 2PL dataset (N = 1,000; 500 per group; no impact) with DIF planted in three items: uniform DIF against the focal group in item 3 (+0.6 logits difficulty), uniform DIF favoring the focal group in item 12 (−0.5), and non-uniform DIF in item 7 (discrimination × 0.4, difficulty +0.3). Comparing our engine against `difR` v6.1.0 (`difMH`, `difLogistic`, matched settings, no purification) across all 20 items, the maximum absolute differences were: α_MH, 0; MH chi-square, 1.8 × 10⁻¹⁵; Δ_MH, 0; logistic LR statistic, 0; ΔR², 2.8 × 10⁻¹⁶ — machine precision throughout, with 100% agreement on ETS classifications (full table: `benchmark/equivalence_engine_vs_difR.csv`). The engine flags exactly the three planted items — items 3 and 12 by Mantel–Haenszel with correctly signed deltas, item 7 by the non-uniform logistic test (p = 3.1 × 10⁻⁷) — and the deployed browser app reproduces this flagging at every sample size tested.
 

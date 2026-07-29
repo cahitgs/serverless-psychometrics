@@ -129,7 +129,7 @@ Gelecekte herhangi biri, herhangi bir zamanda zip'i indirir, açar ve `httpuv::r
 
 OmegaLite (Şekil 2) bilerek minimaldir — yaklaşık 140 satır, yalnızca base R + shiny koduyla eksiksiz ve kullanışlı bir psikometrik araç; bir şablon olarak okunmak üzere tasarlanmıştır. Kullanıcı bir CSV yükler, madde sütunlarını seçer ve ana metrik olarak — alpha yerine omegayı yeğleme önerisine uyarak (McNeish, 2018) — bootstrap güven aralıklı McDonald omega-toplamı alır; yanında kıyas için Cronbach alpha, düzeltilmiş madde-toplam korelasyonları ve silinirse-alpha/omega tabloları vardır; hepsi CSV olarak indirilebilir.
 
-**[Şekil 2 buraya — OmegaLite ekran görüntüsü: figures/omegalite-e2e-test.png]**
+![**Şekil 2.** Tarayıcıda çalışan OmegaLite: yüklenen veri, madde seçimi, bootstrap GA'lı omega/alpha ve madde istatistikleri.](../figures/omegalite-e2e-test.png)
 
 İstatistiksel çekirdek tek paragrafa sığar. Omega-toplam, `stats::factanal()` ile elde edilen tek faktörlü en çok olabilirlik çözümünden hesaplanır: standartlaştırılmış yükler λ ile ω_t = (Σλ)² / [(Σλ)² + Σ(1 − λ²)] (McDonald, 1999). Alpha kovaryans matrisinden hesaplanır. Güven aralıkları parametrik olmayan bootstrap kullanır (yüzdelik yöntemi, sabit tohum). Hiçbir katkı paketi işin içinde değildir — uygulamanın webR'da birebir aynı davranmasının garantisi tam da budur.
 
@@ -146,7 +146,7 @@ BiasDetectR Live (Şekil 3), bir demonun değil, araştırma düzeyinde bir anal
 
 Kullanıcı grup sütununu, odak grubu ve madde sütunlarını seçer; çıktı iki istatistik tablosu, ETS eşikleri referans çizgileriyle çizilmiş bir Δ_MH grafiği ve birleşik indirilebilir sonuç tablosudur. IRT tabanlı DIF yöntemleri (ör. Lord testi, IRT-LR) bilinçli olarak kapsam dışıdır: kestirim yükleri ve paket bağımlılıkları onları sunuculu dağıtıma daha uygun kılar — Bölüm 7'deki karar rehberinin somut bir örneği.
 
-**[Şekil 3 buraya — BiasDetectR Live ekran görüntüsü: figures/biasdetectr-e2e-test.png]**
+![**Şekil 3.** BiasDetectR Live: ETS delta grafiği (sınıflama eşikleriyle) ve Mantel–Haenszel sonuç tablosu; ekilen üç DIF'li madde işaretlenmiş durumda.](../figures/biasdetectr-e2e-test.png)
 
 **difR ile doğrulama.** 20 maddelik, iki gruplu bir 2PL veri seti simüle ettik (N = 1.000; grup başına 500; impact yok) ve üç maddeye DIF ektik: madde 3'te odak grup aleyhine uniform DIF (+0,6 logit güçlük), madde 12'de odak grup lehine uniform DIF (−0,5) ve madde 7'de non-uniform DIF (ayırt edicilik × 0,4; güçlük +0,3). Motorumuz `difR` v6.1.0 ile (`difMH`, `difLogistic`, eş ayarlar, arındırma yok) 20 maddenin tamamında karşılaştırıldığında en büyük mutlak farklar şunlardı: α_MH, 0; MH ki-karesi, 1,8 × 10⁻¹⁵; Δ_MH, 0; lojistik LR istatistiği, 0; ΔR², 2,8 × 10⁻¹⁶ — baştan sona makine hassasiyeti ve ETS sınıflarında %100 uyum (tam tablo: `benchmark/equivalence_engine_vs_difR.csv`). Motor tam olarak ekilen üç maddeyi işaretler — 3 ve 12'yi doğru işaretli deltalarla Mantel–Haenszel, 7'yi non-uniform lojistik test (p = 3,1 × 10⁻⁷) — ve dağıtılmış tarayıcı uygulaması bu işaretlemeyi test edilen her örneklem büyüklüğünde yeniden üretir.
 
