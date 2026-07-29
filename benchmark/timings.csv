@@ -1,0 +1,4 @@
+"n","native_s","browser_s","context"
+1000,0.28,1,"local laptop, Chrome headless; cold app load ~10.5 s local"
+5000,0.91,1.5,"local laptop, Chrome headless; cold app load ~10.5 s local"
+50000,7.78,9.5,"local laptop, Chrome headless; cold app load ~10.5 s local"
