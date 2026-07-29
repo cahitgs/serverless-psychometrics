@@ -29,6 +29,13 @@
 - [x] **İlk probe günü (2026-07-28):** 16 URL → 4 doğrudan açık, **10 uykuda (202)**, **1 kesin ölü (404: losener.shinyapps.io/MLM_input)**, **1 kurum sunucusu DNS'ten silinmiş (shiny.molekulare-psychologie.de/ChatDashboard)**. Küçük OA örnekleminde bile ölüm başladı; iki C1 diriltme adayı şimdiden elde
 - [x] Günlük probe GitHub Actions'ta kurulu (03:17 UTC, `audit/probes/`e commit'ler)
 
+### Gün 3 kararı — KAPSAM SADELEŞTİRME (kullanıcı kararı)
+**Denetim (Aşama A) makalenin kapsamından çıkarıldı.** Link ölümü bilinen bir gerçek; kendi ölçümümüzü yapmak yerine mevcut literatüre atıf verilecek (Kern 2020; Ellis 2024; Sadatmoosavi 2026; Pew 2024; plan §12). Makale **salt yöntem öğreten tutorial** olarak yazılacak — BRM Tutorial emsali Rubo (2025) da ölçümsüz salt tutorial'dır, format geçerli. Sonuçları:
+- Springer elle araması, OSF ön-kayıt, elle sınıflama, sağkalım analizi → **iptal**
+- Günlük probe robotu bulutta çalışmaya devam ediyor (sıfır maliyet); giriş bölümünde en fazla tek cümlelik "kendi mini kontrolümüzde de 16 uygulamadan yalnız 4'ü doğrudan yanıt verdi" notu için yedek — makale buna bağımlı değil
+- C1'in diriltme örneği KALIYOR (yöntemi gerçek kod üzerinde öğretir); iki ölü aday zaten elde (MLM_input, ChatDashboard)
+- Takvim ~1 hafta kısaldı (bkz. §10)
+
 ---
 
 ## 1. Stratejik bulgular (tarama sentezi)
@@ -85,7 +92,9 @@ BRM-SHİNY/
 
 ---
 
-## 5. Aşama A — Link-rot denetimi (Kern-tarzı yükseltilmiş protokol)
+## 5. Aşama A — ~~Link-rot denetimi~~ → Giriş kanıtı literatürden (Gün 3 kararıyla kapsam dışı)
+
+> Bu bölümün araştırma bileşeni iptal edildi; giriş bölümü mevcut literatüre atıfla yazılacak (§12 kaynakça). Aşağıdaki protokol/altyapı depoda kalıyor (probe robotu ücretsiz veri biriktirmeye devam ediyor) ama makalenin kritik yolunda değil. Arşiv niteliğinde:
 
 ### Örneklem
 - Springer Link, BRM tam metin: `"shinyapps.io"` (birincil), `"shiny application"`, `"Shiny app"` (ikincil, elle elenir); **2015–2025**; canlı uygulama URL'si verilenler dahil, yalnız paket linki verenler hariç. Beklenen ~100–150 makale.
@@ -164,7 +173,7 @@ Konsept aynı (makale çekirdeği); artık repo.r-wasm.org indexi + canlı doğr
 
 | Bölüm | İçerik |
 |-------|--------|
-| Introduction | Üçlü huni: link-rot literatürü → biyoinformatik audit gelenegi → psikolojide boşluk; **kendi audit bulgumuz motivasyon alt-bölümü olarak burada**; Manolov 2026 canlı örnek |
+| Introduction | Üçlü huni **literatürden**: link-rot çalışmaları (Pew 2024, Sadatmoosavi 2026) → araç denetimleri (Kern 2020) → psikolojide aynı risk (Ellis 2024, Manolov 2026 canlı örnek); opsiyonel tek cümle kendi mini spot-check'imizden |
 | How it works | webR/WASM teknik olmayan anlatım + tek mimari şeması (sunuculu vs sunucusuz) |
 | Step-by-step guide | export → yerel test (**file:// çalışmaz!**) → Pages → sürüm pinleme → Zenodo |
 | Example 1: OmegaLite | tam kod listing + ekran görüntüleri |
@@ -193,13 +202,12 @@ Biçim: APA 7; özet ≤250 kelime; kelime sınırı yok (emsaller 12–14k keli
 | Gün | İş |
 |-----|-----|
 | 1 | ✅ Kurulum + OmegaLite + export + e2e test (bugün) |
-| 2–3 | **Audit protokolü + OSF ön-kayıt + Springer araması + probe'u BAŞLAT** (pencere paralel aksın) + OmegaLite Pages deploy |
-| 4–5 | §2 kararı uygulanır: BiasDetectR bağımlılık tablosu + DIF motoru çekirdeği (motor UI'dan bağımsız yazılır, birim testli) |
-| 6–8 | BiasDetectR Live tamamla + Pages; (C1 ise) diriltme adayını audit'ten seç + taşı |
-| 9–10 | Eşdeğerlik + benchmark matrisi + uçak modu çekimleri |
-| 11–12 | Probe verisi ara analiz + audit elle sınıflama + sağkalım figürü |
-| 13–18 | Quarto taslak (probe penceresi kapanınca audit sayıları güncellenir) |
-| 19–20 | İç okuma; Zenodo/OSF/SWH arşivleri; temiz makine testi; kapak mektubu; gönderim |
+| 2 | ✅ Deploy (repo + Pages + canlı e2e) + probe altyapısı (artık bonus) |
+| 3–4 | BiasDetectR DIF motoru çekirdeği (UI'dan bağımsız, birim testli: MH + lojistik DIF) |
+| 5–7 | BiasDetectR Live tamamla + export + Pages; diriltme vakası (MLM_input veya ChatDashboard kaynak kodunu bul → taşı → "neler değişti" tablosu) |
+| 8–9 | Eşdeğerlik + benchmark matrisi + uçak modu çekimleri |
+| 10–15 | Quarto taslak (salt tutorial yapısı, §9) |
+| 16–17 | İç okuma; Zenodo/SWH arşivleri; temiz makine testi; kapak mektubu; gönderim |
 
 ---
 
