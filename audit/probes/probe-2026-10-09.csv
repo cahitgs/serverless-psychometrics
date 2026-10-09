@@ -1,0 +1,23 @@
+"app_url","checked_at","http_status","response_time_s","final_url","redirected","soft_fail_markers","auto_class","error_message"
+"https://iscience-kn.shinyapps.io/dropR","2026-10-09T10:35:55Z",200,2.05,"https://iscience-kn.shinyapps.io/dropR/",FALSE,"","ok_needs_manual",NA
+"https://tkwong3004.shinyapps.io/BayesTtestPower","2026-10-09T10:35:57Z",202,1.79,"https://tkwong3004.shinyapps.io/BayesTtestPower/",FALSE,NA,"waking_202",NA
+"https://paulriesthuis.shinyapps.io/ROC_Power_Shiny","2026-10-09T10:35:59Z",202,1.9,"https://paulriesthuis.shinyapps.io/ROC_Power_Shiny/",FALSE,NA,"waking_202",NA
+"https://sempower.shinyapps.io/sempower","2026-10-09T10:36:01Z",202,1.79,"https://sempower.shinyapps.io/sempower/",FALSE,NA,"waking_202",NA
+"https://sjak.shinyapps.io/power4SEM","2026-10-09T10:36:03Z",202,1.82,"https://sjak.shinyapps.io/power4SEM/",FALSE,NA,"waking_202",NA
+"https://kg11.shinyapps.io/tailoredcutoffs","2026-10-09T10:36:05Z",202,1.93,"https://kg11.shinyapps.io/tailoredcutoffs/",FALSE,NA,"waking_202",NA
+"https://losener.shinyapps.io/MLM_input","2026-10-09T10:36:07Z",404,0.29,"https://losener.shinyapps.io/MLM_input",FALSE,NA,"client_error",NA
+"https://utrecht-university.shinyapps.io/OD_CRXO","2026-10-09T10:36:07Z",202,1.9,"https://utrecht-university.shinyapps.io/OD_CRXO/",FALSE,NA,"waking_202",NA
+"https://shiny.molekulare-psychologie.de/jkohne/ChatDashboardShowcase","2026-10-09T10:36:09Z",NA,0.17,NA,NA,NA,"dns_error","Failed to perform HTTP request.
+Caused by error in `curl::curl_fetch_memory()`:
+! Couldn't resolve host name [shiny.molekulare-psychologie.de]:
+Could not resolve host: shiny.molekulare-psychologie.de"
+"https://utrecht-university.shinyapps.io/Power_Piecewise_Growth","2026-10-09T10:36:09Z",202,1.46,"https://utrecht-university.shinyapps.io/Power_Piecewise_Growth/",FALSE,NA,"waking_202",NA
+"https://shiny.gold-msi.org/longgold_demo","2026-10-09T10:36:10Z",NA,0.39,NA,NA,NA,"ssl_error","Failed to perform HTTP request.
+Caused by error in `curl::curl_fetch_memory()`:
+! SSL peer certificate or SSH remote key was not OK [shiny.gold-msi.org]:
+SSL certificate problem: unable to get local i"
+"https://manolov.shinyapps.io/ResponseFunction","2026-10-09T10:36:11Z",202,1.42,"https://manolov.shinyapps.io/ResponseFunction/",FALSE,NA,"waking_202",NA
+"https://sergiopirla.shinyapps.io/powerADapp","2026-10-09T10:36:12Z",202,1.41,"https://sergiopirla.shinyapps.io/powerADapp/",FALSE,NA,"waking_202",NA
+"https://utrecht-university.shinyapps.io/missing_data_CRT","2026-10-09T10:36:14Z",202,2.05,"https://utrecht-university.shinyapps.io/missing_data_CRT/",FALSE,NA,"waking_202",NA
+"https://bastd.shinyapps.io/shiny_bastd","2026-10-09T10:36:16Z",202,1.83,"https://bastd.shinyapps.io/shiny_bastd/",FALSE,NA,"waking_202",NA
+"http://shinyapps.org/apps/BFDA","2026-10-09T10:36:17Z",200,0.86,"http://shinyapps.org/apps/BFDA/",FALSE,"","ok_needs_manual",NA
